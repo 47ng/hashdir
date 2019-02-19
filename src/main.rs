@@ -14,6 +14,6 @@ struct Args {
 fn main() {
   let args = Args::from_args();
   let root = args.path;
-  let hash = merkledir::get_dir_hash(&root, &root).unwrap();
-  println!("{}      Final hash", hash);
+  let root_node = merkledir::DirNode::from_path(&root, &root).unwrap();
+  println!("{}", serde_json::to_string_pretty(&root_node).unwrap());
 }
