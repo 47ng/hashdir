@@ -12,5 +12,4 @@ deploy:
   on:
     repo: franky47/merkledir
     tags: true
-  draft: true
   skip_cleanup: true
