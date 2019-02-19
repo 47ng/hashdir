@@ -10,3 +10,12 @@ matrix:
 cache: cargo
 script:
   - cargo build --release --all
+deploy:
+  provider: releases
+  api_key:
+    secure: Z7u6ftSaq6scK3wZ+NHgAFQfm9eqPLYRg+I5rzvS85EUGj2O5Glj5F6TuWzmSgP5juRqgq7Fo1WEPr/RRKcTpaEzNSuSHKdDWA1YD9s+j3omTKQihGhKFaGbOZvj0f+bY8MkvFvsl4CRVIP5poRx+BG9VrGjhTiAQz1qoMMdzypI+LhN2DNpN3IZK5fa8vwk1AHKwBmhk0AeZG/wtGQvWLbD1GcBLuC0x6Vo/QkY5K/acZNkU9fEFV4dDHoEa3HpNWOVVU6CKHCazD1xdV3LTIH+j9Ct/DhlO4BZvTc0RkqbastRIeTIMvXVpfhd2pA/CjQTxcXH9VkuSuXU/z42Bf7OBznrdIfKa5ZvkwLNPZrmleOxLmiqAYU9tL1eqlu5oMZIXYwD/3s1HD0ap/v+OP7UOokqw/Mf/sxLvztigtESSVdcdo+5Ssw0KWZCyc/E/US7ZI9ARo/ZaKb07pv9baF7KhW9MRMh/lWTnnVpEeRSEwdOFgA/abBDjxAvplPUbwd23CL4QI4o4FvyT6ealiIHoXm45CXStGCE21kBcZdIJdMAoss76Rwrce6P3G6nwkN3WyYFT8sSBXWajt4jp1JMwP5yix8Q7O195qFm5IRF/P4ljDEutSrQ/wjiWrzLImByUC5tRbgfVzsnxmtnp/pla3UACwANpMNJAjX3N/M=
+  file: target/release/merkledir
+  on:
+    repo: franky47/merkledir
+  draft: true
+  skip_cleanup: true
