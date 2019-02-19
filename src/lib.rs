@@ -23,7 +23,7 @@ fn get_file_hash(path: &Path, root: &Path) -> Hash {
   out
 }
 
-fn get_dir_hash(path: &Path, root: &Path) -> std::io::Result<Hash> {
+pub fn get_dir_hash(path: &Path, root: &Path) -> std::io::Result<Hash> {
   // List the directory contents
   let local_dirname = path.strip_prefix(root).unwrap().to_str().unwrap();
   let mut hashes = vec![];
@@ -41,10 +41,4 @@ fn get_dir_hash(path: &Path, root: &Path) -> std::io::Result<Hash> {
   let out = hash(hashes.join(" ").into_bytes());
   println!("{} dir  {:?}", out, local_dirname);
   Ok(out)
-}
-
-fn main() {
-  let root = std::env::current_dir().unwrap();
-  let hash = get_dir_hash(&root, &root).unwrap();
-  println!("{}      Final hash", hash);
 }

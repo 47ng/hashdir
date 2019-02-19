@@ -9,3 +9,12 @@ serde = "1.0.88"
 serde_json = "1.0.38"
 serde_derive = "1.0.88"
 sha2 = "0.8.0"
+structopt = "0.2.14"
+
+[lib]
+name = "merkledir"
+path = "src/lib.rs"
+
+[[bin]]
+name = "merkledir"
+path = "bin/merkledir.rs"
