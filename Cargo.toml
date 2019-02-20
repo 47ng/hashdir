@@ -4,6 +4,7 @@ version = "0.1.2"
 authors = ["Francois Best <francois@francoisbest.com>"]
 description = "Generate a cryptographic view of a directory's contents"
 repository = "https://github.com/47ng/hashdir"
+documentation = "https://docs.rs/hashdir"
 readme = "readme.md"
 license = "MIT"
 edition = "2018"
