@@ -126,7 +126,7 @@ impl DirNode {
 fn hash(input: Vec<u8>) -> String {
   let mut hash = Sha512Trunc256::default();
   hash.input(input);
-  format!("{:x}", hash.fixed_result())
+  format!("sha512/256-{}", base64::encode(&hash.fixed_result()))
 }
 
 // -----------------------------------------------------------------------------
