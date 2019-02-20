@@ -4,7 +4,7 @@ extern crate custom_error;
 extern crate serde_derive;
 
 use sha2::digest::FixedOutput;
-use sha2::{Digest, Sha256};
+use sha2::{Digest, Sha512Trunc256};
 use std::path::Path;
 
 pub type Hash = String;
@@ -124,7 +124,7 @@ impl DirNode {
 // --
 
 fn hash(input: Vec<u8>) -> String {
-  let mut hash = Sha256::default();
+  let mut hash = Sha512Trunc256::default();
   hash.input(input);
   format!("{:x}", hash.fixed_result())
 }
