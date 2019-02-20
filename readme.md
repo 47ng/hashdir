@@ -1,6 +1,8 @@
 # hashdir
 
 [![Build Status](https://travis-ci.com/47ng/hashdir.svg?branch=master)](https://travis-ci.com/47ng/hashdir)
+![Crates.io](https://img.shields.io/crates/v/hashdir.svg)
+![Crates.io](https://img.shields.io/crates/l/hashdir.svg)
 
 Generate a cryptographic view of a directory's contents.
 
