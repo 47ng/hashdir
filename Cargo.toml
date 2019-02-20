@@ -1,5 +1,5 @@
 [package]
-name = "merkledir"
+name = "hashdir"
 version = "0.1.2"
 authors = ["Francois Best <francois@francoisbest.com>"]
 edition = "2018"
