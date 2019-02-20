@@ -1,15 +1,11 @@
 language: rust
 rust:
   - stable
-cache: cargo
+  - beta
+before_script:
+  - rustup component add clippy
 script:
+  - cargo clippy --all-targets --all-features -- -D warnings
+  - cargo test
   - cargo build --release --all
-#deploy:
-#  provider: releases
-#  api_key:
-#    secure: TODO: replace token here
-#  file: target/release/hashdir
-#  on:
-#    repo: 47ng/hashdir
-#    tags: true
-#  skip_cleanup: true
+cache: cargo
