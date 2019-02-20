@@ -2,17 +2,7 @@
 
 Generate a cryptographic view of a directory's contents.
 
-## TODO
-
-- Better error handling/declaration
-- Arguments for various outputs:
-  - JSON (pretty|minified)
-  - CBOR (binary) -> might require better encoding of the hashes to benefit from
-                     direct binary encoding (if supported by serde_cbor)
-  - Only the final hash of the directory
-
-Desired CLI output:
-```shell
+```shell
 $ hashdir --help
 Generate a cryptographic view of a directory's contents.
 
@@ -45,4 +35,4 @@ $ hashdir --version --verbose
 hashdir 0.1.2 (0132ed39 2019-02-20)
   commit: https://github.com/franky47/hashdir/commit/0132ed3913edff635c3784261dff74f3490fc1d1
   build:  https://travis-ci.com/franky47/hashdir/builds/101546740
-```
+```
