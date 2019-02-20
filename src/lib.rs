@@ -60,7 +60,7 @@ impl FileNode {
         .into_bytes(),
     );
     Ok(Self {
-      path: String::from("./".to_owned() + local_filename),
+      path: "./".to_owned() + local_filename,
       hash,
       size: path.metadata()?.len(),
     })
@@ -114,7 +114,7 @@ impl DirNode {
       .collect();
     let hash = hash(hashes.join(" ").into_bytes());
     Ok(Self {
-      path: String::from("./".to_owned() + local_dirname),
+      path: "./".to_owned() + local_dirname,
       hash,
       children,
     })
