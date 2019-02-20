@@ -1,5 +1,7 @@
 # hashdir
 
+[![Build Status](https://travis-ci.com/47ng/hashdir.svg?branch=master)](https://travis-ci.com/47ng/hashdir)
+
 Generate a cryptographic view of a directory's contents.
 
 ```shell
