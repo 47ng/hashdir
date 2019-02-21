@@ -25,7 +25,7 @@ pub enum Node {
 // --
 
 custom_error! { pub NodeError
-  Foo { source: std::io::Error }                 = @{format!("IO Error: {:?}", source.kind())},
+  Io { source: std::io::Error }                 = @{format!("IO Error: {:?}", source.kind())},
   StripPrefixError { source: StripPrefixError } = "could not strip path prefix",
 }
 
