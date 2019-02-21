@@ -5,10 +5,16 @@ extern crate serde_derive;
 
 use sha2::digest::FixedOutput;
 use sha2::{Digest, Sha512Trunc256};
-use std::path::Path;
+use std::path::{Path, StripPrefixError};
 
+/// Shorthand for hashing operations output.
+///
+/// Values are base64-encoded SHA-512/256 digests.
 pub type Hash = String;
 
+/// Generic filesystem tree node
+///
+/// Can represent either a directory or a file
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Node {
@@ -19,9 +25,11 @@ pub enum Node {
 // --
 
 custom_error! { pub NodeError
-  IO { source: std::io::Error } = "",
-  Foo { source: std::path::StripPrefixError } = "",
+  Foo { source: std::io::Error }                 = @{format!("IO Error: {:?}", source.kind())},
+  StripPrefixError { source: StripPrefixError } = "could not strip path prefix",
 }
+
+// --
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct FileNode {
@@ -43,14 +51,6 @@ pub struct FileNode {
 
 impl FileNode {
   pub fn from_path(path: &Path, root: &Path) -> Result<Self, NodeError> {
-    // Bad outcomes:
-    // - not a file
-    // - does not exist
-    // - cannot read
-    // - cannot convert path to unicode String
-    // - cannot get relative path
-    // - cannot retrieve metadata
-
     let contents = std::fs::read(path)?;
     let contents_hash = hash(contents);
     let local_filename = path.strip_prefix(root)?.to_str().unwrap();
@@ -78,19 +78,12 @@ pub struct DirNode {
   /// separated by spaces.
   pub hash: Hash,
 
+  /// List of children nodes. Can be directories or files.
   pub children: Vec<Node>,
 }
 
 impl DirNode {
   pub fn from_path(path: &Path, root: &Path) -> Result<Self, NodeError> {
-    // Bad outcomes:
-    // - not a directory
-    // - does not exist
-    // - cannot read
-    // - cannot convert path to unicode String
-    // - cannot get relative path
-    // - cannot list children
-
     let local_dirname = path.strip_prefix(root)?.to_str().unwrap();
     let mut children = Vec::new();
 
