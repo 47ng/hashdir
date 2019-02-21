@@ -1,6 +1,6 @@
 [package]
 name = "hashdir"
-version = "0.1.4"
+version = "0.2.0"
 authors = ["Francois Best <francois@francoisbest.com>"]
 description = "Generate a cryptographic view of a directory's contents"
 repository = "https://github.com/47ng/hashdir"

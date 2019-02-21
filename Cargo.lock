@@ -63,7 +63,7 @@ dependencies = [
 
 [[package]]
 name = "hashdir"
-version = "0.1.4"
+version = "0.2.0"
 dependencies = [
  "base64 0.10.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "custom_error 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
