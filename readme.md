@@ -12,9 +12,9 @@ Generate a cryptographic view of a directory's contents.
 use hashdir::DirNode;
 
 fn main() {
-  let root_path = std::env::current_dir().unwrap();
-  let root_node = DirNode::from_path(&root_path, &root_path).unwrap();
-  println!("{:?}", root_node);
+  let path = std::env::current_dir().unwrap();
+  let node = DirNode::from_path(&path, &path).unwrap();
+  println!("{:#?}", node);
 }
 ```
 
@@ -34,11 +34,6 @@ JSON Output (with `serde_json`):
       "path": "./flat.json",
       "hash": "NAKMmbFrkytNFmsGz8pHuugiBY14DnjWGyBNwkUNR7A=",
       "size": 382
-    },
-    {
-      "path": "./main.rs",
-      "hash": "30QSAFGAiWypdIZCN6s3ISiGVkDb2bo57jUz/ybEFts=",
-      "size": 674
     }
   ]
 }
